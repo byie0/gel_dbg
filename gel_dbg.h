@@ -55,12 +55,11 @@ fflush(gel_dbg_stream);\
 #define dbgCheck(x)\
 int rawSuccess = x;\
 if (rawSuccess){\
-dbg(RED_COLOR "[ERROR] %d", rawSuccess);\
+dbg(RED_COLOR "[ERROR] \"" #x "\" = %d", rawSuccess);\
 die(#x);\
 }else{\
-dbg( "[PASS] %d", rawSuccess);\
+dbg( "[PASS] \"" #x "\" = %d", rawSuccess);\
 }
-
 
 
 /** Message debug **/
