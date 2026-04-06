@@ -40,17 +40,16 @@ void die(const char *msg);
 do{\
 if (gel_dbg_stream != stdout){\
 fprintf(gel_dbg_stream,  "[%s/%s:%d] " fmt "\n", DIR_TERMS, __VA_ARGS__);\
-fflush(gel_dbg_stream);\
 }else{\
 fprintf(gel_dbg_stream,  DIR_COLOR "[%s/%s:%d] " MSG_COLOR fmt "\n\r", DIR_TERMS, __VA_ARGS__);\
-fflush(gel_dbg_stream);\
 }\
+fprintf(gel_dbg_stream, RESET);\
+fflush(gel_dbg_stream);\
 }while (0)
 #endif
 #ifdef NDEBUG
 #define dbg(msg, ...) {}
 #endif
-
 
 /** die errors **/
 #define dbgCheck(x)\
