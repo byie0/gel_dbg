@@ -31,7 +31,7 @@ extern FILE *gel_dbg_stream;
 #define DIR_TERMS __FILE_NAME__, __func__, __LINE__
 
 
-void die(const char *msg);
+static inline void die(const char *msg);
 
 
 /** General dbg **/
@@ -79,7 +79,7 @@ fprintf(gel_dbg_stream, DIR_TERM_FORMAT ,DIR_TERMS ,msg  );\
 #endif
 
 
-void die(const char *msg) {
+static inline void die(const char *msg) {
     perror(msg);
     exit(-1);
 }
